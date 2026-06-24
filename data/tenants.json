@@ -1,0 +1,69 @@
+[
+    {
+        "id": 1,
+        "name": "Batik Gedog Bumi Wali",
+        "category": "Fashion",
+        "location": "Merakurak",
+        "shortDesc": "Kain tenun gedog dan batik tulis khas Tuban buatan tangan ibu-ibu pengrajin desa.",
+        "longDesc": "Rumah produksi batik tulis asli yang melestarikan warisan tenun khas Tuban. Menggunakan benang pintal kapas lokal manual dengan pewarna alami dari tanaman kayu dan daun, menghasilkan kain yang awet, ramah lingkungan, dan sarat nilai cerita rakyat Tuban.",
+        "image": "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600",
+        "whatsapp": "6281234567890",
+        "instagram": "batikgedog.tuban",
+        "products": [
+            { "name": "Kain Batik Tulis Motif Ganggeng", "price": "Hubungi Penjual" },
+            { "name": "Selendang Tenun Warna Alami", "price": "Hubungi Penjual" }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Keripik Ganyong Mak Nur",
+        "category": "Kuliner",
+        "location": "Semanding",
+        "shortDesc": "Camilan renyah tradisional dari umbi ganyong pilihan, tanpa pengawet buatan.",
+        "longDesc": "Mak Nur mengemas camilan ndeso menjadi suguhan modern. Keripik ganyong diiris tipis dengan bumbu rahasia bawang ketumbar gurih, sangat cocok sebagai teman minum teh atau oleh-oleh khas Tuban.",
+        "image": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=600",
+        "whatsapp": "6281234567891",
+        "instagram": "keripik.maknur",
+        "products": [
+            { "name": "Keripik Ganyong Original Kemasan 250g", "price": "Hubungi Penjual" }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Studio Kriya Jati Estetik",
+        "category": "Kriya",
+        "location": "Tuban Kota",
+        "shortDesc": "Dekorasi dan perlengkapan dapur minimalis dari sisa kayu jati solid bersertifikat.",
+        "longDesc": "Mengubah potongan kayu jati berkualitas tinggi menjadi piring, mangkuk, talenan, dan sendok cantik untuk memperindah dapur Anda. Diampelas halus tanpa bahan kimia berbahaya (food-grade finish).",
+        "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=600",
+        "whatsapp": "6281234567892",
+        "instagram": "kriyajati.tbn",
+        "products": [
+            { "name": "Set Sendok Mangkuk Kayu Jati", "price": "Hubungi Penjual" }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Soto Ayam Pesisir Jenu",
+        "category": "Kuliner",
+        "location": "Jenu",
+        "shortDesc": "Soto ayam dengan kuah gurih beraroma koya udang asli, resep turun temurun.",
+        "longDesc": "Warung soto legendaris di pinggir jalan Pantura Jenu. Terkenal karena kuah kaldunya yang mantap dengan limpahan koya udang yang gurih tiada tanding. Selalu ramai dikunjungi warga lokal maupun pelancong.",
+        "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=600",
+        "whatsapp": "6281234567893",
+        "instagram": "sotopesisir.jenu",
+        "products": []
+    },
+    {
+        "id": 5,
+        "name": "Pixel Ronggolawe Digital",
+        "category": "Digital",
+        "location": "Tuban Kota",
+        "shortDesc": "Jasa bikin website portofolio, logo umkm, dan kelola media sosial biar usaha makin laris.",
+        "longDesc": "Kumpulan anak muda kreatif Tuban yang siap membantu warung, resto, dan UMKM lokal memiliki logo keren, feed Instagram rapi, serta website jualan yang simpel agar gampang ditemukan pelanggan online.",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600",
+        "whatsapp": "6281234567894",
+        "instagram": "pixel.ronggolawe",
+        "products": []
+    }
+]
