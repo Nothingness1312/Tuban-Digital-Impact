@@ -45,7 +45,7 @@ function renderDirectory(data) {
         card.innerHTML = `
             <div>
                 <div class="h-44 bg-stone-100 relative overflow-hidden">
-                    <img src="${tenant.image}" alt="${tenant.name}" class="w-full h-full object-cover">
+                    <img src="${tenant.image}" alt="Foto usaha ${tenant.name} - kategori ${tenant.category} di Tuban" loading="lazy" decoding="async" class="w-full h-full object-cover">
                     <span class="absolute top-3 left-3 bg-white/95 text-warm-dark font-bold text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-md shadow-xs">
                         ${tenant.category}
                     </span>
@@ -60,10 +60,10 @@ function renderDirectory(data) {
             </div>
             <div class="p-4 pt-0 space-y-2">
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="https://wa.me/${tenant.whatsapp}" target="_blank" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
+                    <a href="https://wa.me/${tenant.whatsapp}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
                         <i class="fa-brands fa-whatsapp w-3.5 h-3.5 mr-1 text-emerald-600"></i> WA
                     </a>
-                    <a href="https://instagram.com/${tenant.instagram}" target="_blank" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
+                    <a href="https://instagram.com/${tenant.instagram}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
                         <i class="fa-brands fa-instagram w-3.5 h-3.5 mr-1 text-pink-600"></i> IG
                     </a>
                 </div>
