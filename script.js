@@ -1,7 +1,7 @@
 let tenants = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons();
+    window.lucide?.createIcons();
 
     const searchInput = document.getElementById('search-input');
     const filterCat = document.getElementById('filter-cat');
@@ -61,10 +61,10 @@ function renderDirectory(data) {
             <div class="p-4 pt-0 space-y-2">
                 <div class="grid grid-cols-2 gap-2">
                     <a href="https://wa.me/${tenant.whatsapp}" target="_blank" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
-                        <i data-lucide="message-circle" class="w-3.5 h-3.5 mr-1 text-emerald-600"></i> WA
+                        <i class="fa-brands fa-whatsapp w-3.5 h-3.5 mr-1 text-emerald-600"></i> WA
                     </a>
                     <a href="https://instagram.com/${tenant.instagram}" target="_blank" class="flex items-center justify-center border border-stone-200 text-stone-600 rounded-xl py-1.5 text-xs font-semibold hover:bg-stone-50 transition-colors">
-                        <i data-lucide="instagram" class="w-3.5 h-3.5 mr-1 text-pink-600"></i> IG
+                        <i class="fa-brands fa-instagram w-3.5 h-3.5 mr-1 text-pink-600"></i> IG
                     </a>
                 </div>
                 <button onclick="openModal(${tenant.id})" class="w-full text-center bg-stone-50 hover:bg-stone-100 border border-stone-200 text-warm-dark rounded-xl py-2 text-xs font-bold transition-all">
@@ -74,7 +74,7 @@ function renderDirectory(data) {
         `;
         grid.appendChild(card);
     });
-    lucide.createIcons();
+    window.lucide?.createIcons();
 }
 
 function applyFilters() {
@@ -118,6 +118,20 @@ function openModal(id) {
     document.getElementById('modal-wa').href = `https://wa.me/${tenant.whatsapp}`;
     document.getElementById('modal-ig').href = `https://instagram.com/${tenant.instagram}`;
 
+    const mapSection = document.getElementById('modal-location-section');
+    const mapFrame = document.getElementById('modal-map');
+    const mapAddress = document.getElementById('modal-address');
+
+    if (tenant.mapsEmbed) {
+        mapSection.classList.remove('hidden');
+        mapFrame.src = tenant.mapsEmbed;
+        mapAddress.textContent = tenant.address || '';
+    } else {
+        mapSection.classList.add('hidden');
+        mapFrame.src = '';
+        mapAddress.textContent = '';
+    }
+
     const productGrid = document.getElementById('modal-products');
     productGrid.innerHTML = '';
 
@@ -145,7 +159,7 @@ function openModal(id) {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
-    lucide.createIcons();
+    window.lucide?.createIcons();
 }
 
 function closeModal() {
