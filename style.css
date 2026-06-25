@@ -1,0 +1,227 @@
+@media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-12px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes scalePop {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes imageLoad {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes headerShadow {
+                from {
+                    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+                }
+                to {
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                }
+            }
+
+            .hero-title {
+                animation: slideUp 0.8s ease-out 0.1s both;
+            }
+
+            .hero-paragraph {
+                animation: slideUp 0.8s ease-out 0.25s both;
+            }
+
+            .hero-button {
+                animation: slideUp 0.8s ease-out 0.4s both;
+            }
+
+            .category-btn {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, box-shadow;
+            }
+
+            .category-btn:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            .category-btn:active {
+                transform: scale(0.97);
+            }
+
+            .category-btn i {
+                transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms ease;
+                will-change: transform, color;
+            }
+
+            .category-btn:hover i {
+                transform: scale(1.1);
+            }
+
+            .category-btn.selected {
+                animation: scalePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .directory-card {
+                animation: slideUp 0.6s ease-out both;
+                will-change: transform, opacity, box-shadow;
+            }
+
+            .directory-card img {
+                opacity: 1;
+                transition: opacity 0.35s ease, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, opacity;
+            }
+
+            .directory-card img.loading {
+                opacity: 0;
+            }
+
+            .directory-card:hover img {
+                transform: scale(1.05);
+            }
+
+            .directory-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            }
+
+            button, a {
+                transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, background-color, box-shadow, color;
+            }
+
+            button:hover, a:hover {
+                transform: translateY(-2px);
+            }
+
+            button:active, a:active {
+                transform: scale(0.97);
+            }
+
+            input, select {
+                transition: all 200ms ease;
+                will-change: border-color, box-shadow, background-color;
+            }
+
+            input:focus, select:focus {
+                box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+            }
+
+            .modal-overlay {
+                animation: fadeIn 0.3s ease-out;
+                will-change: opacity;
+            }
+
+            .modal-overlay.closing {
+                animation: fadeIn 0.3s ease-out reverse;
+            }
+
+            .modal-content {
+                animation: scalePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                will-change: transform, opacity;
+            }
+
+            .modal-content.closing {
+                animation: scalePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) reverse;
+            }
+
+            .empty-state {
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            .empty-state.fade-out {
+                animation: fadeIn 0.3s ease-out reverse;
+            }
+
+            .scroll-fade-up {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                will-change: opacity, transform;
+            }
+
+            .scroll-fade-up.in-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            [data-lucide] {
+                animation: fadeIn 0.4s ease-out;
+            }
+
+            .product-card {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, box-shadow;
+            }
+
+            .product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                transition: all 200ms ease;
+                will-change: box-shadow, backdrop-filter;
+            }
+
+            header.scrolled {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(12px);
+            }
+
+            .social-link {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, background-color;
+            }
+
+            .social-link:hover {
+                transform: translateY(-3px);
+            }
+
+            .filter-section {
+                animation: slideDown 0.5s ease-out;
+            }
