@@ -77,6 +77,236 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://unpkg.com/lucide@1.21.0/dist/umd/lucide.min.js"></script>
+        <style>
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-12px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes scalePop {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes imageLoad {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes headerShadow {
+                from {
+                    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+                }
+                to {
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                }
+            }
+
+            .hero-title {
+                animation: slideUp 0.8s ease-out 0.1s both;
+            }
+
+            .hero-paragraph {
+                animation: slideUp 0.8s ease-out 0.25s both;
+            }
+
+            .hero-button {
+                animation: slideUp 0.8s ease-out 0.4s both;
+            }
+
+            .category-btn {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, box-shadow;
+            }
+
+            .category-btn:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            .category-btn:active {
+                transform: scale(0.97);
+            }
+
+            .category-btn i {
+                transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms ease;
+                will-change: transform, color;
+            }
+
+            .category-btn:hover i {
+                transform: scale(1.1);
+            }
+
+            .category-btn.selected {
+                animation: scalePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .directory-card {
+                animation: slideUp 0.6s ease-out both;
+                will-change: transform, opacity, box-shadow;
+            }
+
+            .directory-card img {
+                opacity: 1;
+                transition: opacity 0.35s ease, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, opacity;
+            }
+
+            .directory-card img.loading {
+                opacity: 0;
+            }
+
+            .directory-card:hover img {
+                transform: scale(1.05);
+            }
+
+            .directory-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            }
+
+            button, a {
+                transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, background-color, box-shadow, color;
+            }
+
+            button:hover, a:hover {
+                transform: translateY(-2px);
+            }
+
+            button:active, a:active {
+                transform: scale(0.97);
+            }
+
+            input, select {
+                transition: all 200ms ease;
+                will-change: border-color, box-shadow, background-color;
+            }
+
+            input:focus, select:focus {
+                box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+            }
+
+            .modal-overlay {
+                animation: fadeIn 0.3s ease-out;
+                will-change: opacity;
+            }
+
+            .modal-overlay.closing {
+                animation: fadeIn 0.3s ease-out reverse;
+            }
+
+            .modal-content {
+                animation: scalePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                will-change: transform, opacity;
+            }
+
+            .modal-content.closing {
+                animation: scalePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) reverse;
+            }
+
+            .empty-state {
+                animation: fadeIn 0.5s ease-out;
+            }
+
+            .empty-state.fade-out {
+                animation: fadeIn 0.3s ease-out reverse;
+            }
+
+            .scroll-fade-up {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                will-change: opacity, transform;
+            }
+
+            .scroll-fade-up.in-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            [data-lucide] {
+                animation: fadeIn 0.4s ease-out;
+            }
+
+            .product-card {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, box-shadow;
+            }
+
+            .product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            header {
+                transition: all 200ms ease;
+                will-change: box-shadow, backdrop-filter;
+            }
+
+            header.scrolled {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(12px);
+            }
+
+            /* ===== SOCIAL LINKS ===== */
+            .social-link {
+                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: transform, background-color;
+            }
+
+            .social-link:hover {
+                transform: translateY(-3px);
+            }
+
+            .filter-section {
+                animation: slideDown 0.5s ease-out;
+            }
+        </style>
     </head>
     <body class="bg-warm-bg text-warm-dark font-sans antialiased selection:bg-warm-brand selection:text-white">
 
@@ -114,9 +344,9 @@
                     Direktori ini membantu kamu menemukan UMKM Tuban berkualitas dengan produk lokal, jasa kreatif, dan tempat makan khas yang terus berkembang di Kabupaten Tuban.
                 </p>
                 <div class="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">
-                    <a href="#eksplor" class="w-full sm:w-auto inline-flex items-center justify-center text-center space-x-2 bg-warm-dark hover:bg-stone-800 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-colors shadow-sm">
+                    <a href="#eksplor" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-warm-dark hover:bg-stone-800 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-colors shadow-sm">
                         <span>Jelajahi Usaha</span>
-                        <i data-lucide="arrow-down" class="absolute right-5 w-4 h-4"></i>
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
                     </a>
                     <a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center bg-warm-accent text-warm-brand border border-rose-100 hover:bg-rose-100 font-semibold px-6 py-3 rounded-xl text-sm transition-colors">
                         Daftarkan Usahamu
@@ -124,36 +354,37 @@
                 </div>
             </div>
         </section>
-        <section id="kategori" class="py-12 bg-warm-bg border-b border-stone-200/60">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-xs font-bold tracking-widest uppercase text-stone-400 mb-6">Pilih Kategori Keren</h2>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3" id="category-grid">
-                    <button onclick="filterCategory('Kuliner')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="utensils" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Kuliner</span>
-                    </button>
-                    <button onclick="filterCategory('Fashion')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="shirt" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Fashion</span>
-                    </button>
-                    <button onclick="filterCategory('Kriya')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="gem" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Kriya</span>
-                    </button>
-                    <button onclick="filterCategory('Fotografi')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="camera" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Fotografi</span>
-                    </button>
-                    <button onclick="filterCategory('Desain')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="palette" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Desain</span>
-                    </button>
-                    <button onclick="filterCategory('Musik')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
-                        <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="music" class="w-5 h-5"></i></div>
-                        <span class="text-xs font-bold text-warm-dark">Musik</span>
-                    </button>
-                    <button onclick="filterCategory('Digital')" class="bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+
+        <section id="kategori" class="py-12 bg-warm-bg border-b border-stone-200/60 scroll-fade-up">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-xs font-bold tracking-widest uppercase text-stone-400 mb-6">Pilih Kategori Keren</h2>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3" id="category-grid">
+                        <button onclick="filterCategory('Kuliner')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Kuliner</span>
+                        </button>
+                        <button onclick="filterCategory('Fashion')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="shirt" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Fashion</span>
+                        </button>
+                        <button onclick="filterCategory('Kriya')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="gem" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Kriya</span>
+                        </button>
+                        <button onclick="filterCategory('Fotografi')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="camera" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Fotografi</span>
+                        </button>
+                        <button onclick="filterCategory('Desain')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="palette" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Desain</span>
+                        </button>
+                        <button onclick="filterCategory('Musik')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
+                            <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="music" class="w-5 h-5"></i></div>
+                            <span class="text-xs font-bold text-warm-dark">Musik</span>
+                        </button>
+                        <button onclick="filterCategory('Digital')" class="category-btn bg-white p-4 rounded-xl border border-stone-200 hover:border-warm-brand text-center transition-all group flex flex-col items-center justify-center space-y-2 shadow-sm">
                         <div class="text-stone-400 group-hover:text-warm-brand transition-colors"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
                         <span class="text-xs font-bold text-warm-dark">Digital</span>
                     </button>
@@ -161,10 +392,10 @@
             </div>
         </section>
 
-        <section id="eksplor" class="py-12 bg-warm-bg min-h-screen">
+        <section id="eksplor" class="py-12 bg-warm-bg min-h-screen scroll-fade-up">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm mb-8 flex flex-col md:flex-row gap-3">
+                <div class="filter-section bg-white p-4 rounded-2xl border border-stone-200 shadow-sm mb-8 flex flex-col md:flex-row gap-3">
                     <div class="relative flex-1">
                         <i data-lucide="search" class="absolute left-3.5 top-3 w-4 h-4 text-stone-400"></i>
                         <input type="text" id="search-input" placeholder="Cari nama usaha atau camilan apa saja..." class="w-full pl-10 pr-4 py-2 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-warm-brand focus:bg-white transition-colors">
@@ -203,7 +434,7 @@
         </section>
         </main>
 
-        <footer class="bg-white border-t border-stone-200 py-12 text-sm text-stone-500">
+        <footer class="bg-white border-t border-stone-200 py-12 text-sm text-stone-500 scroll-fade-up">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center space-x-2">
                     <img src="./logo.png" alt="Logo Tuban Digital Impact" class="w-10 h-10 object-contain">
